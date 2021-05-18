@@ -33,6 +33,157 @@ var (
 	_ = ptypes.DynamicAny{}
 )
 
+// Validate checks the field values on SingleProductRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SingleProductRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if m.GetId() <= 0 {
+		return SingleProductRequestValidationError{
+			field:  "Id",
+			reason: "value must be greater than 0",
+		}
+	}
+
+	return nil
+}
+
+// SingleProductRequestValidationError is the validation error returned by
+// SingleProductRequest.Validate if the designated constraints aren't met.
+type SingleProductRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SingleProductRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SingleProductRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SingleProductRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SingleProductRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SingleProductRequestValidationError) ErrorName() string {
+	return "SingleProductRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SingleProductRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSingleProductRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SingleProductRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SingleProductRequestValidationError{}
+
+// Validate checks the field values on SingleProductResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SingleProductResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SingleProductResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// SingleProductResponseValidationError is the validation error returned by
+// SingleProductResponse.Validate if the designated constraints aren't met.
+type SingleProductResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SingleProductResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SingleProductResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SingleProductResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SingleProductResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SingleProductResponseValidationError) ErrorName() string {
+	return "SingleProductResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SingleProductResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSingleProductResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SingleProductResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SingleProductResponseValidationError{}
+
 // Validate checks the field values on ProductRequest with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
 // is returned.
@@ -198,3 +349,168 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ProductResponseValidationError{}
+
+// Validate checks the field values on ProductCreateRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ProductCreateRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if len(m.GetIds()) < 1 {
+		return ProductCreateRequestValidationError{
+			field:  "Ids",
+			reason: "value must contain at least 1 item(s)",
+		}
+	}
+
+	if m.GetPage() <= 0 {
+		return ProductCreateRequestValidationError{
+			field:  "Page",
+			reason: "value must be greater than 0",
+		}
+	}
+
+	if m.GetLimit() <= 0 {
+		return ProductCreateRequestValidationError{
+			field:  "Limit",
+			reason: "value must be greater than 0",
+		}
+	}
+
+	return nil
+}
+
+// ProductCreateRequestValidationError is the validation error returned by
+// ProductCreateRequest.Validate if the designated constraints aren't met.
+type ProductCreateRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProductCreateRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProductCreateRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProductCreateRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProductCreateRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProductCreateRequestValidationError) ErrorName() string {
+	return "ProductCreateRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProductCreateRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProductCreateRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProductCreateRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProductCreateRequestValidationError{}
+
+// Validate checks the field values on ProductCreateResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ProductCreateResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ProductCreateResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// ProductCreateResponseValidationError is the validation error returned by
+// ProductCreateResponse.Validate if the designated constraints aren't met.
+type ProductCreateResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProductCreateResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProductCreateResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProductCreateResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProductCreateResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProductCreateResponseValidationError) ErrorName() string {
+	return "ProductCreateResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProductCreateResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProductCreateResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProductCreateResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProductCreateResponseValidationError{}
