@@ -358,24 +358,13 @@ func (m *ProductCreateRequest) Validate() error {
 		return nil
 	}
 
-	if len(m.GetIds()) < 1 {
-		return ProductCreateRequestValidationError{
-			field:  "Ids",
-			reason: "value must contain at least 1 item(s)",
-		}
-	}
-
-	if m.GetPage() <= 0 {
-		return ProductCreateRequestValidationError{
-			field:  "Page",
-			reason: "value must be greater than 0",
-		}
-	}
-
-	if m.GetLimit() <= 0 {
-		return ProductCreateRequestValidationError{
-			field:  "Limit",
-			reason: "value must be greater than 0",
+	if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ProductCreateRequestValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
 		}
 	}
 
