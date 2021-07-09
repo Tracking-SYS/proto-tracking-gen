@@ -8,7 +8,7 @@ git clone git@github.com:Tracking-SYS/proto-tracking-gen.git
 ```
 2. Generate go files in **proto-tracking** repository with command
 ```
-make go
+./build.sh
 ```
 
 3. Tag version and publish
