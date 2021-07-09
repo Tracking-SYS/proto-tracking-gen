@@ -4,7 +4,7 @@
 
 1. Clone proto repository which is located at same directory level with this repository
 ```
-git clone git@github.com:lk153/proto-tracking.git
+git clone git@github.com:Tracking-SYS/proto-tracking-gen.git
 ```
 2. Generate go files in **proto-tracking** repository with command
 ```
@@ -19,10 +19,10 @@ make go
 ### HOW TO USE MODULE IN PROJECT
 1. Setup **GOPRIVATE** to bypass Go Mod proxy site
 ```
-go env -w GOPRIVATE=github.com/lk153
+go env -w GOPRIVATE=github.com/Tracking-SYS
 ```
 
 2. Execute command to download latest version
 ```
-go get -u github.com/lk153/proto-tracking-gen
+go get -u github.com/Tracking-SYS/proto-tracking-gen
 ```
