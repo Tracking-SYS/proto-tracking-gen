@@ -1,0 +1,13 @@
+
+’
+tracking/entities/task.prototracking.entities"Š
+TaskInfo
+id (Rid
+name (	Rname
+start_at (	RstartAt
+end_at (	RendAt
+status (Rstatus#
+creation_time (	RcreationTime+
+modification_time (	RmodificationTime
+user_id (RuserId%
+remaining_time	 (	RremainingTimeBJZHgithub.com/Tracking-SYS/proto-tracking-gen/go/tracking/entities;entitiesbproto3

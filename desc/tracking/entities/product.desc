@@ -1,0 +1,11 @@
+
+Ð
+tracking/entities/product.prototracking.entities"Å
+ProductInfo
+id (Rid
+name (	Rname
+price (Rprice
+type (	Rtype
+status (Rstatus#
+creation_time (	RcreationTime+
+modification_time (	RmodificationTimeBJZHgithub.com/Tracking-SYS/proto-tracking-gen/go/tracking/entities;entitiesbproto3
