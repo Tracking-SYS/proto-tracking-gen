@@ -1,0 +1,14 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Tracking System",
+    "description" : "Tracking System",
+    "version" : "0.0.1"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/Tracking_SYS/tracking/0.0.1",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "paths" : { },
+  "components" : { }
+}
